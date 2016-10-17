@@ -3,11 +3,37 @@
 # tfk-seneca-queue-mongodb
 Seneca plugin for queue
 
+## Usage
+
+```JavaScript
+'use strict'
+
+const seneca = require('seneca')()
+const senecaQueue = require('tfk-seneca-queue-mongodb')
+const queueOptions = {
+  TAG: 'seneca-queue-test',
+  MONGODB_URI: 'localhost/queuetest',
+  MONGODB_COLLECTION_NAME: 'senecaque'
+}
+
+seneca.add('role:info, info:queue', args => {
+  console.log(args)
+})
+
+seneca.use(senecaQueue, queueOptions)
+
+seneca.listen(8000)
+```
+
 ## Messages handled
 ### ```role: queue, cmd: add```
 Adds data to the queue
 ```javascript
 Seneca.act('role: queue, cmd: add', {key: 'test', value: 2}, (error, data) => {})
+```
+
+```sh
+curl -d '{"role": "queue", "cmd":"add", "data":{"digg`":"datatest"}}' -v http://localhost:8000/act
 ```
 
 ### ```role: queue, cmd: next```
@@ -16,10 +42,18 @@ Get next data in queue
 Seneca.act('role: queue, cmd: next', (error, data) => {})
 ```
 
+```sh
+curl -d '{"role": "queue", "cmd":"next"}' -v http://localhost:8000/act
+```
+
 ### ```role: queue, cmd: delete```
 Deletes data from queue
 ```javascript
 Seneca.act('role: queue, cmd: delete', {queueId: '1234'}, (error, data) => {})
+```
+
+```sh
+curl -d '{"role": "queue", "cmd":"delete", "queueId":"1234"}' -v http://localhost:8000/act
 ```
 
 ## Messages emitted
@@ -31,9 +65,5 @@ Contains the document added in ```data```
 Message emitted on data deleted from queue.
 Contains the document deleted in ```data```
 
-
-```curl -d '{"role": "queue", "cmd":"add", "data":{"digg`":"datatest"}}' -v http://localhost:8000/act```
-
-```curl -d '{"role": "queue", "cmd":"next"}' -v http://localhost:8000/act```
-
-```curl -d '{"role": "queue", "cmd":"delete", "queueId":"1234"}' -v http://localhost:8000/act```
+## License
+[MIT](LICENSE)
