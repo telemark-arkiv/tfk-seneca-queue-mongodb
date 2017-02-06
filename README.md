@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/telemark/tfk-seneca-queue-mongodb.svg?branch=master)](https://travis-ci.org/telemark/tfk-seneca-queue-mongodb)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # tfk-seneca-queue-mongodb
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/tfk-seneca-queue-mongodb.svg)](https://greenkeeper.io/)
 Seneca plugin for queue
 
 ## Usage
