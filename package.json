@@ -1,7 +1,7 @@
 {
   "name": "tfk-seneca-queue-mongodb",
   "description": "Seneca plugin for tfk queue with mongodb",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
