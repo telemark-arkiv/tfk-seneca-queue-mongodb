@@ -40,7 +40,7 @@
     "seneca": "3.4.2",
     "standard": "10.0.3",
     "tap": "10.7.2",
-    "nsp": "2.6.3"
+    "nsp": "2.8.0"
   },
   "dependencies": {
     "mongojs": "2.4.0"
